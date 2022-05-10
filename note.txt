@@ -1,0 +1,130 @@
+* 'UI SDK(Software Development Kit)' created by Google for cross platform applications
+    : Android, iOS, Web, Linux, macOS, Windows, Fuchsia
+
+    - Use 'Material Design'
+    - Everything is 'Widget'(widget tree): https://docs.flutter.dev/development/ui/widgets
+        - Basic Widgets: Scaffold, AppBar, Container, Text, Image, Icon, etc
+    - 'Stateless' widgets : immutable state that can NOT be changed during runtime
+    - 'Stateful' widgets: mutable state that CAN be redrawn on the screen multiple times
+    - Build method
+
+------------------------------------------------------------------------------------
+* Requirements
+
+    - iOS: Xcode, iOS simulator
+        - Configure the Xcode command-line tools to use the newly-installed version of Xcode by running the following command
+            : $ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+            $ sudo xcodebuild -runFirstLaunch
+        - Find the Simulator via Spotlight or by using the following command
+            : $ open -a simulator
+    - Android: Android Studio / SDK Tools(latest Command-line Tools) / emulator(AVD: Android Virtual Device)
+        - Run Flutter doctor
+            : $ flutter doctor
+    - Etc: Android Studio plugins(Flutter), VSCode extensions
+
+------------------------------------------------------------------------------------
+* Setup: https://docs.flutter.dev/get-started/install/macos
+
+    - Download Flutter SDK
+        - Extract the file in the desired location
+        - Add the Flutter tool to your path(where extracted folder exists)
+            : $ export PATH="$PATH:<pwd>/flutter/bin"
+        - Check Flutter
+            : $ which flutter
+            ex) /Users/charlie/Documents/flutter/bin/flutter
+
+    - Run Flutter doctor
+        : $ flutter doctor
+        ...
+            Doctor summary (to see all details, run flutter doctor -v):
+            [✓] Flutter (Channel stable, 2.10.5, on macOS 12.3.1 21E258 darwin-x64, locale en-US)
+            [✓] Android toolchain - develop for Android devices (Android SDK version 30.0.2)
+            [✓] Xcode - develop for iOS and macOS (Xcode 13.3.1)
+            [✓] Chrome - develop for the web
+            [✓] Android Studio (version 2021.2)
+            [✓] IntelliJ IDEA Community Edition (version 2021.3.2)
+            [✓] VS Code (version 1.67.0)
+            [✓] Connected device (1 available)
+            [✓] HTTP Host Availability
+
+            • No issues found!
+        ...
+
+    - Create Flutter app
+        : $ flutter create wordpair_generator
+        ...
+            Running "flutter pub get" in flutter_tools...                       9.7s
+            Creating project wordpair_generator...
+            Running "flutter pub get" in wordpair_generator...               1,784ms
+            Wrote 122 files.
+
+            All done!
+            In order to run your application, type:
+
+            $ cd wordpair_generator
+            $ flutter run
+
+            Your application code is in wordpair_generator/lib/main.dart.
+        ...
+
+------------------------------------------------------------------------------------
+* React Native는 명령어를 통해 실행할 경우 자동으로 simulator 또는 emulator가 작동되었으나,
+  Flutter는 simulator 또는 emulator를 미리 작동시켜 두어야만 iOS 또는 Android에서 디버깅 할수 있다. 
+  만약 그렇지 않을 경우 데스크탑 또는 웹을 옵션으로 선택하게 된다.
+  
+  - iOS 
+    - $ open -a simulator
+    - $ flutter run
+  - Android: Android Studio - More Actions - Virtual Device Manager - Launch Emulator
+    - $ flutter run
+
+------------------------------------------------------------------------------------
+* 'Widgets' library: import package:flutter/widgets.dart (conditionally automatically imported)
+
+    - 'StatelessWidget' class
+    - 'BuildContext' class
+    - 'Text' class
+    - 'Center' class
+    - 'ListView' class
+    - 'Icon' class
+    - 'Navigator' class
+
+* 'Painting' library: import package:flutter/painting.dart (conditionally automatically imported)
+ 
+    - 'TextStyle' class
+    - 'EdgeInsets' class
+
+* 'dart:core' library: automatically imported
+ 
+    - 'Iterable' class
+    - 'List' class
+
+------------------------------------------------------------------------------------   
+* 'Material' library: import package:flutter/material.dart
+  
+    - 'MaterialApp' class
+    - 'ThemeData' class
+    - 'Scaffold' class
+    - 'Colors' class
+    - 'AppBar' class
+    - 'Divider' class
+    - 'ListTile' class
+    - 'Icons' class
+    - 'IconButton' class
+    - 'MaterialPageRoute' class
+
+------------------------------------------------------------------------------------
+* Dart and Flutter Package Repository: https://pub.dev/
+
+    - english_words: https://pub.dev/packages/english_words
+        - $ dart pub add english_words
+        - $ flutter pub add english_words
+        - import 'package:english_words/english_words.dart';
+
+------------------------------------------------------------------------------------
+* Deployment
+
+    - Build and release an Android app
+        : https://docs.flutter.dev/deployment/android
+    - Build and release an iOS app
+        : https://docs.flutter.dev/deployment/ios
